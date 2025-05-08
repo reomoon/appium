@@ -6,9 +6,9 @@ import time
 # 옵션 객체 생성
 options = UiAutomator2Options()
 options.platform_name = "Android"
-options.device_name = "172.30.1.61:5555"
-options.app_package = "com.ss.android.ugc.tiktok.lite"
-options.app_activity = "com.ss.android.ugc.aweme.splash.SplashActivity"
+options.device_name = "emulator-5554" # 안드로이드 스튜디오에서 연결된 에뮬레이터의 이름
+options.app_package = "com.fashiongo.qa"
+options.app_activity = "com.fashiongo.ui.main.MainActivity"
 options.no_reset = True
 
 try:
