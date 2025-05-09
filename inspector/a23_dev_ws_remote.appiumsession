@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "caps": [
+    {
+      "type": "text",
+      "name": "platformName",
+      "value": "Android"
+    },
+    {
+      "type": "text",
+      "name": "appium:deviceName",
+      "value": "172.30.1.66:5555"
+    },
+    {
+      "type": "text",
+      "name": "appium:appPackage",
+      "value": "com.fashiongo.qa"
+    },
+    {
+      "type": "text",
+      "name": "appium:appActivity",
+      "value": "com.fashiongo.ui.main.MainActivity"
+    },
+    {
+      "type": "text",
+      "name": "appium:automationName",
+      "value": "UiAutomator2"
+    },
+    {
+      "type": "boolean",
+      "name": "appium:noReset",
+      "value": true
+    }
+  ],
+  "server": {
+    "local": {},
+    "remote": {
+      "path": "/wd/hub",
+      "host": "127.0.0.1",
+      "port": "4723",
+      "hostname": "127.0.0.1"
+    },
+    "advanced": {},
+    "sauce": {
+      "dataCenter": "us-west-1"
+    },
+    "headspin": {},
+    "browserstack": {},
+    "lambdatest": {},
+    "testingbot": {},
+    "experitest": {},
+    "roboticmobi": {},
+    "remotetestkit": {},
+    "bitbar": {},
+    "kobiton": {},
+    "perfecto": {},
+    "pcloudy": {},
+    "mobitru": {},
+    "tvlabs": {},
+    "testcribe": {}
+  },
+  "serverType": "remote",
+  "visibleProviders": []
+}
