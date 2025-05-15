@@ -2,13 +2,14 @@ from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from appium.options.android import UiAutomator2Options
+from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.appiumby import AppiumBy
 import time
 
 # 옵션 객체 생성
 options = UiAutomator2Options()
 options.platform_name = "Android"
-options.device_name = "172.30.1.7:5555" # 안드로이드 스튜디오에서 연결된 에뮬레이터의 이름
+options.device_name = "172.30.1.33:5555" # 안드로이드 스튜디오에서 연결된 에뮬레이터의 이름
 options.app_package = "com.ss.android.ugc.tiktok.lite"
 options.app_activity = "com.ss.android.ugc.aweme.splash.SplashActivity"
 options.no_reset = True
@@ -24,9 +25,10 @@ try:
     driver.implicitly_wait(5)
 
     # Xpath로 '포인트' 버튼 선택
-    driver.find_element(
-        AppiumBy.XPATH,
-        '//android.widget.FrameLayout[@content-desc="포인트"]/android.widget.ImageView').click()
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (AppiumBy.XPATH, '//android.widget.FrameLayout[@content-desc="포인트"]/android.widget.ImageView'))
+    ).click()
     print("Footer 포인트 버튼 클릭")
     time.sleep(2)  # 닫기 후 잠시 대기 
     # 스크롤이 지나쳐서 수동으로 해줘야 할 경우 다시 확인 필요
@@ -45,15 +47,18 @@ try:
 
     for i in range(40):
         # 그 안에서 "시청" 버튼 찾기
-        driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, 
-                            'new UiSelector().text("시청")').click()
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located(
+                (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("시청")'))
+        ).click()
         print(f"시청 버튼 ({i+1}번째) 클릭")
         time.sleep(17)
 
         # 시청에서 닫기 버튼 선택
-        driver.find_element(
-            AppiumBy.ID,
-            'com.ss.android.ugc.tiktok.lite:id/obw').click()
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located(
+                (AppiumBy.ID, 'com.ss.android.ugc.tiktok.lite:id/og2'))
+        ).click()
         print(f"닫기 버튼 ({i+1}번째) 클릭")
         time.sleep(2)  # 닫기 후 잠시 대기 
 
